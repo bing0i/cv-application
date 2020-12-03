@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import InputWithLabel from './InputWithLabel';
 import uniqid from 'uniqid';
+import '../styles/Section.css'
 
 class Section extends Component {
   constructor(props) {
@@ -8,18 +9,20 @@ class Section extends Component {
   }
 
   render() {
-    const { inpWthLbs, id } = this.props;
+    const { sectionName, inpWthLbs, id } = this.props;
 
     return (
-      <section id={id} className="sect"> {
-          inpWthLbs.map((inpWthLb) => {
-            return (<InputWithLabel
-                      key={uniqid()}
-                      lbText={inpWthLb.lbText}
-                      inpType={inpWthLb.inpType} 
-                    />);
-          })
-        }
+      <section id={id} className="sect">
+      <h1>{sectionName}</h1>
+      {
+        inpWthLbs.map((inpWthLb) => {
+          return (<InputWithLabel
+                    key={uniqid()}
+                    lbText={inpWthLb.lbText}
+                    inpType={inpWthLb.inpType} 
+                  />);
+        })
+      }
       </section>
     );
   }

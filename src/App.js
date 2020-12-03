@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import Section from './components/Section';
+import './styles/App.css'
 
 class App extends Component {
   constructor(props) {
@@ -24,18 +25,36 @@ class App extends Component {
       {lbText: 'From', inpType: 'date'},
       {lbText: 'To', inpType: 'date'},
     ];
+
+    this.state = {
+      isSubmitted: false,
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
+  }
+
+  handleSubmit() {
+    this.setState({isSubmitted: true});
+  }
+
+  handleEdit() {
+    this.setState({isSubmitted: false});
   }
 
   render() {
     return (
       <div className="App">
-        <form class="form">
-          <Section id="contactInfo" inpWthLbs={this.inpWthLbs} />
-          <Section id="educationInfo" inpWthLbs={this.inpWthLbs2} />
-          <Section id="experienceInfo" inpWthLbs={this.inpWthLbs3} />
-        </form>
-        <button type="submit">Submit</button>
-        <button>Edit</button>
+        {
+          this.state.isSubmitted 
+          ? <button onClick={this.handleEdit}>Edit</button>
+          : <form className="form">
+              <Section id="contactInfo" sectionName="Contact" inpWthLbs={this.inpWthLbs} />
+              <Section id="educationInfo" sectionName="Education" inpWthLbs={this.inpWthLbs2} />
+              <Section id="experienceInfo" sectionName="Experience" inpWthLbs={this.inpWthLbs3} />
+              <br/>
+              <button onClick={this.handleSubmit}>Submit</button>
+            </form>
+        }
       </div>
     );
   }
