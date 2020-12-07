@@ -1,8 +1,8 @@
 import { Component } from 'react'
 import uniqid from 'uniqid';
-import '../styles/Section.css'
+import '../styles/SectionOfForm.css'
 
-class Section extends Component {
+class SectionOfForm extends Component {
   constructor(props) {
     super(props);
 
@@ -71,4 +71,4 @@ class Section extends Component {
   }
 }
 
-export default Section;
+export default SectionOfForm;
