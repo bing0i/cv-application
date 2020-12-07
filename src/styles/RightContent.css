@@ -1,0 +1,15 @@
+h1.infoTitleRight {
+  font-size: 16px;
+  margin: 0;
+  text-align: justify;
+}
+
+.infoRight {
+  margin: 0;
+  text-align: justify;
+  margin: 10px 45px;
+}
+
+div.boxRight {
+  margin: 50px 30px;
+}
